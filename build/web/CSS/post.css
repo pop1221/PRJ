@@ -1,0 +1,255 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jul 7, 2022, 9:21:12 AM
+    Author     : Admin
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #131722;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+}
+
+table {
+    color: white
+}
+
+h1 {
+    text-align: center;
+    padding: 10px;
+}
+
+.postbtn {
+    text-align: center;
+    padding: 10px;
+}
+
+.postbtn a {
+    background: red;
+    padding: 7px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.postbtn a:hover {
+    color: black;
+}
+
+.newpost {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+}
+
+.newpost form {
+    background: white;
+    color: black;
+    width: 30%;
+    padding: 20px;
+    position: relative;
+}
+
+.post {
+    background: gray;
+    width: 16%;
+    float: left;
+    display: inline-block;
+    padding: 1%;
+    margin: 1%;
+    height: 200px;
+    position: relative;
+    padding-top: 20px;
+}
+
+.ghim {
+    text-decoration: none;
+    color: black;
+    position: absolute;
+    top: 0;
+    padding: 5px;
+}
+
+.edit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+}
+
+.edit a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.ghim {
+    font-size: 12px;
+    left: 0
+}
+
+.edit:hover {
+    background: red;
+}
+
+.sub {
+    list-style: none;
+    position: absolute;
+    right: 0;
+    background: white;
+    color: black;
+    width: 90px;
+    line-height: 25px;
+    padding: 5px;
+    display: none;
+    cursor: pointer;
+}
+
+.sub li:hover a {
+    color: red;
+}
+
+.edit:hover .sub,
+.edit li:hover .sub{
+    display: block;
+}
+
+.comment {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.comment a {
+    text-decoration: none;
+    color: black;
+    font-size: 13px;
+}
+
+.comment a:hover {
+    color: red;
+}
+
+.commentcontainer,
+.texteditcontainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    z-index: 2;
+}
+
+.commenttext {
+    margin-top: 5px;
+}
+
+.commentcontainer {
+    overflow: hidden;
+}
+
+.textedit {
+    background: white;
+    height: 94%;
+    width: 100%;
+    padding: 3%;
+    color: black;
+    overflow: auto;
+    padding-right: 10px;
+}
+
+.textedit form {
+    margin-top: 20%;
+}
+
+p.close {
+    color: black;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+}
+
+p.closepost {
+    color: black;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.closepost:hover,
+.close:hover {
+    color: red;
+}
+
+.postcmt {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    text-align: center;
+    display: none;
+    height: 25%;
+}
+
+.postcmt form {
+    margin-top: 13%;
+}
+
+.paging {
+    display: block;
+    position: fixed;
+    bottom: 10px;
+    text-align: center;
+    right: 0;
+    left: 0;
+}
+
+.paging a {
+    text-decoration: none;
+    color: white;
+    border: 1px solid;
+    display: inline-block;
+    width: 20px;
+}
+
+a.home {
+    text-decoration: none;
+    background: red;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    margin: 10px;
+    position: absolute;
+}
+
