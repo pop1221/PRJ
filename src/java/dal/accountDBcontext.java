@@ -66,7 +66,7 @@ public class accountDBcontext {
 
     public ArrayList<objclass> loadObjClass() {
         ArrayList<objclass> objclasslist = new ArrayList<>();
-        String sql = "select subject.id, subject.name, subject.semester, class.id, class.[total student], register.semester, room.id, room.[slot booked], room.day, [total slot] from class, register, room, subject where subject.id like register.[id subject] and class.id like register.[id class] and register.STT = room.STT";
+        String sql = "select subject.id, subject.name, subject.semester, class.id, class.[total student], register.semester, room.id, room.[slot booked], room.day, [total slot] from class_HE160227 class, register_HE160227 register, room_HE160227 room, subject_HE160227 subject where subject.id like register.[id subject] and class.id like register.[id class] and register.STT = room.STT";
         try {
             con = new DBIcontext().getConnection();
             ps = con.prepareStatement(sql);
@@ -137,7 +137,7 @@ public class accountDBcontext {
     }
 
     public objclass getobjclass(String classid, String subjectid) {
-        String sql = "select subject.id, subject.name, subject.semester, class.id, class.[total student], register.semester, room.id, room.[slot booked], room.day, [total slot] from class, register, room, subject where subject.id like register.[id subject] and class.id like register.[id class] and register.STT = room.STT and subject.id = ? and class.id = ?";
+        String sql = "select subject.id, subject.name, subject.semester, class.id, class.[total student], register.semester, room.id, room.[slot booked], room.day, [total slot] from class_HE160227 class, register_HE160227 register, room_HE160227 room, subject_HE160227 subject where subject.id like register.[id subject] and class.id like register.[id class] and register.STT = room.STT and subject.id = ? and class.id = ?";
         try {
             con = new DBIcontext().getConnection();
             ps = con.prepareStatement(sql);
@@ -291,7 +291,7 @@ public class accountDBcontext {
     }
 
     public void deleteroom(String classid, String subjectid) {
-        String sql = "delete from room_HE160227 where STT = (select STT from register where [id class] = ? and [id subject] = ?)";
+        String sql = "delete from room_HE160227 where STT = (select STT from register_HE160227 where [id class] = ? and [id subject] = ?)";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, classid);
@@ -363,7 +363,7 @@ public class accountDBcontext {
     }
     
     public void addclass(String classid, String totalstudent) {
-        String sql = "insert into class values(?, ?)";
+        String sql = "insert into class_HE160227 values(?, ?)";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, classid);
@@ -374,7 +374,7 @@ public class accountDBcontext {
     }
 
     public void addsubject(String subjectid, String subjectname, String totalslot, String semester) {
-        String sql = "insert into subject values(?, ?, ?, ?)";
+        String sql = "insert into subject_HE160227 values(?, ?, ?, ?)";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, subjectid);
@@ -387,7 +387,7 @@ public class accountDBcontext {
     }
 
     public void addregister(String classid, String subjectid, String semester) {
-        String sql = "insert into register values(?, ?, ?)";
+        String sql = "insert into register_HE160227 values(?, ?, ?)";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, classid);
@@ -399,7 +399,7 @@ public class accountDBcontext {
     }
 
     public void addroom(String roomid, String slot, String day) {
-        String sql = "insert into room values(?, ?, ?)";
+        String sql = "insert into room_HE160227 values(?, ?, ?)";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, roomid);
@@ -411,7 +411,7 @@ public class accountDBcontext {
     }
 
     public void addforum(String username, String title, String text) {
-        String sql = "insert into forum(username,title,text) values (?,?,?)";
+        String sql = "insert into forum_HE160227(username,title,text) values (?,?,?)";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, username);
@@ -423,7 +423,7 @@ public class accountDBcontext {
     }
     
     public void addcomment(String username, String content, String STT) {
-        String sql = "insert into comment values(?,?,?)";
+        String sql = "insert into comment_HE160227 values(?,?,?)";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, username);
@@ -435,7 +435,7 @@ public class accountDBcontext {
     }
 
     public void updateroom(String roomid, String slotbooked, String day, String classid, String subjectid) {
-        String sql = "update room set id = ?, [slot booked] = ?, day = ? where STT = (select STT from register where [id class] = ? and [id subject] = ?)";
+        String sql = "update room_HE160227 set id = ?, [slot booked] = ?, day = ? where STT = (select STT from register_HE160227 where [id class] = ? and [id subject] = ?)";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, roomid);
@@ -449,7 +449,7 @@ public class accountDBcontext {
     }
 
     public void updateregister(String semester, String classid, String subjectid) {
-        String sql = "update register set semester = ? where [id class] = ? and [id subject] = ?";
+        String sql = "update register_HE160227 set semester = ? where [id class] = ? and [id subject] = ?";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, semester);
@@ -461,7 +461,7 @@ public class accountDBcontext {
     }
 
     public void updateclass(String totalstudent, String classid) {
-        String sql = "update class set [total student] = ? where id = ?";
+        String sql = "update class_HE160227 set [total student] = ? where id = ?";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, totalstudent);
@@ -472,7 +472,7 @@ public class accountDBcontext {
     }
 
     public void updatesubject(String subjectname, String totalslot, String semester, String subjectid) {
-        String sql = "update subject set name = ?, [total slot] = ?, semester = ? where id = ?";
+        String sql = "update subject_HE160227 set name = ?, [total slot] = ?, semester = ? where id = ?";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, subjectname);
@@ -485,7 +485,7 @@ public class accountDBcontext {
     }
     
     public void updateforum(String title, String text, String STT) {
-        String sql = "update forum set title = ?, text = ? where STT = ?";
+        String sql = "update forum_HE160227 set title = ?, text = ? where STT = ?";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, title);
@@ -497,7 +497,7 @@ public class accountDBcontext {
     }
     
     public void updatepin(String pin, String STT) {
-        String sql = "update forum set pin = ? where STT = ?";
+        String sql = "update forum_HE160227 set pin = ? where STT = ?";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, pin);
